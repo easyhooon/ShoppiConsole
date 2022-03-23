@@ -2,7 +2,8 @@ package screen
 
 import data.CartItems
 import data.Product
-
+import extensions.getNotEmptyInt
+import extensions.getNotEmptyString
 
 
 //카테고리 별 상품 목록 관리, 사용자가 요청한 카테고리의 상품 목록을 표시
@@ -53,11 +54,12 @@ class ShoppingProductList {
             """.trimIndent()
         )
 
-        val selectedIndex = readLine()?.toIntOrNull()!!
+        //val selectedIndex = readLine()?.toIntOrNull()!!
+        val selectedIndex = readLine().getNotEmptyInt()
         categoryProducts.getOrNull(selectedIndex)?.let { product ->
             CartItems.addProduct(product)
             println("=> 장바구니로 이동하시려면 #을, 계속 쇼핑하시려면 *을 입력해주세요.")
-            val answer = readLine()
+            val answer = readLine().getNotEmptyString()
             if (answer == "#") {
                 val shoppingCart = ShoppingCart()
                 shoppingCart.showCartItems()

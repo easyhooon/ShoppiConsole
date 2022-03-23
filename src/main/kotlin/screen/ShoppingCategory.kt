@@ -1,10 +1,12 @@
 package screen
 
+import extensions.getNotEmptyString
+
 class ShoppingCategory {
 
     /*
     Step 1. 장바구니에 추가한 상품 관리
-    Step 2. 사용자 입력값 요청 처리 공통화
+    Step 2. 사용자 입력값 요청 처리 공통화 (코드의 난잡함을 해결하는 중요한 부분-> 반복되는 부분 확장 함수로 공통화)
     Step 3. 프로젝트 전역에서 참조하는 상수
      */
 
@@ -17,12 +19,9 @@ class ShoppingCategory {
         }
         println("=> 장바구니로 이동하시려면 #을 입력해주세요")
 
-        var selectedCategory = readLine()
+        //확장함수를 통해 입력받는 코드 개선
+        val selectedCategory = readLine().getNotEmptyString()
 
-        while (selectedCategory.isNullOrBlank()) {
-            println("값을 입력해주세요")
-            selectedCategory = readLine()
-        }
         if (selectedCategory == "#") {
             val shoppingCart = ShoppingCart()
             shoppingCart.showCartItems()
