@@ -16,7 +16,6 @@ object ScreenStack {
     fun peek(): Screen? {
         return screenStack.lastOrNull()
     }
-
 }
 
 // 모든 화면을 Screen의 Subclass 로 선언해줌 ( 클래스 파일에서 : Screen() 으로 처리)

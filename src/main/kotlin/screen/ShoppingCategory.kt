@@ -1,13 +1,13 @@
 package screen
 
+import LINE_DIVIDER
 import extensions.getNotEmptyString
 
 class ShoppingCategory: Screen() {
 
     /*
-    Step 1. 장바구니에 추가한 상품 관리
-    Step 2. 사용자 입력값 요청 처리 공통화 (코드의 난잡함을 해결하는 중요한 부분-> 반복되는 부분 확장 함수로 공통화)
-    Step 3. 프로젝트 전역에서 참조하는 상수 (구분선과 같은)
+    사용자 입력값 요청 처리 공통화 (코드의 난잡함을 해결하는 중요한 부분-> 반복되는 부분 확장 함수로 공통화)
+    프로젝트 전역에서 참조하는 상수 (구분선과 같은)
      */
 
     // 함수로 묶고 싶은 만큼 드래그해서 refactor -> function
@@ -18,8 +18,9 @@ class ShoppingCategory: Screen() {
         for (category in categories) {
             println(category)
         }
-        println("=> 장바구니로 이동하시려면 #을 입력해주세요")
-
+        println(
+            "=> 장바구니로 이동하시려면 #을 입력해주세요"
+        )
         //확장함수를 통해 입력받는 코드 개선
         val selectedCategory = readLine().getNotEmptyString()
 

@@ -29,11 +29,12 @@ class ShoppingProductList(private val selectedCategory: String): Screen() {
         ScreenStack.push(this)
         val categoryProducts = categories[selectedCategory]
         if(!categoryProducts.isNullOrEmpty()) {
-            println("""
+            println(
+                """
                 $LINE_DIVIDER
                 선택하신 [$selectedCategory] 카테고리 상품입니다.
-            """.trimIndent())
-            val productSize = categoryProducts.size
+            """.trimIndent()
+            )
             //for 문을 사용한 부분을 고차함수로 변경
 //            for(index in 0 until productSize) {
 //                println("${index}. ${categoryProducts[index].name}")
