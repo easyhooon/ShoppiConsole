@@ -8,7 +8,7 @@ import extensions.getNotEmptyString
 
 
 //카테고리 별 상품 목록 관리, 사용자가 요청한 카테고리의 상품 목록을 표시
-class ShoppingProductList {
+class ShoppingProductList: Screen() {
     private val products = arrayOf(
         Product("패션", "겨울 패딩"),
         Product("패션", "겨울 바지"),
@@ -26,6 +26,7 @@ class ShoppingProductList {
     }
 
     fun showProducts(selectedCategory: String) {
+        ScreenStack.push(this)
         val categoryProducts = categories[selectedCategory]
         if(!categoryProducts.isNullOrEmpty()) {
             println("""

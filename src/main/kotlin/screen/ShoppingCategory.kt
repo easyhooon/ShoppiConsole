@@ -2,7 +2,7 @@ package screen
 
 import extensions.getNotEmptyString
 
-class ShoppingCategory {
+class ShoppingCategory: Screen() {
 
     /*
     Step 1. 장바구니에 추가한 상품 관리
@@ -13,6 +13,7 @@ class ShoppingCategory {
     // 함수로 묶고 싶은 만큼 드래그해서 refactor -> function
     // ctrl alt m 하면 함수로 빼낼 수 있음
     fun showCategories() {
+        ScreenStack.push(this)
         val categories = arrayOf("패션", "전자기기", "반려동물용품")
         for (category in categories) {
             println(category)
